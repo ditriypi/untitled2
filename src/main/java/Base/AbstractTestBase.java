@@ -1,2 +1,5 @@
-package Base;public class AbstractTestBase {
+package Base;
+
+public class AbstractTestBase {
+
 }
