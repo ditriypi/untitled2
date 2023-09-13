@@ -6,11 +6,11 @@ pipeline {
             steps {
                 echo 'Hello World'
             }
-        } // Закрывающая скобка для блока steps
+        }
 
-        stage('Get cod') {
+        stage('Build and Test') {
             steps {
-                sh 'mvn clean test -Dtestng.suite.xml=testng.xml'
+                bat 'mvn clean test -Dtestng.suite.xml=testng.xml' // Здесь используется bat для Windows
             }
         }
     }
