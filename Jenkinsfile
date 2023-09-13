@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat 'mvn clean test -Dtestng.suite.xml=testng.xml' // Здесь используется bat для Windows
+                bat 'mvn clean test' // Здесь используется bat для Windows
             }
         }
     }
