@@ -52,6 +52,7 @@ public class LoginTests {
         System.out.println(personHashMap.get(1).name);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        driver.quit();
 
     }
 
