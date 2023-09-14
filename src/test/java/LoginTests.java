@@ -43,26 +43,15 @@ public class LoginTests {
         List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
         Set<String> set2 = new HashSet<>(Arrays.asList("apple", "banana", "cherry", "date"));
 
-       Set<String> set = new TreeSet<>();
-       set.add("2");
-        NavigableMap<Integer, Person> personHashMap = new TreeMap<>();
-        personHashMap.put(1, new Person("Dima"));
-        personHashMap.put(1, new Person("Oleg"));
-
-        System.out.println(personHashMap.get(1).name);
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         driver.quit();
 
     }
 
-    class Person {
-        public String name;
-         Person(String name){
-             this.name = name;
-         }
-
-    }
+   @Test
+    public void test() throws Exception {
+        throw new Exception();
+   }
 }
 
 
