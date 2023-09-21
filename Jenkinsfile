@@ -13,5 +13,11 @@ pipeline {
                 bat 'mvn clean test' // Здесь используется bat для Windows
             }
         }
+
+    }
+    post{
+     any {
+     step([$class: 'PublishTestNGResults', testngResults: '**/testng-results.xml'])
+     }
     }
 }
