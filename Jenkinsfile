@@ -17,7 +17,7 @@ pipeline {
     }
     post{
      always {
-     step([$class: 'PublishTestNGResults', testngResults: '**/testng-results.xml'])
+     testNG(reportFilenamePattern: '**/testng-results.xml')
      }
     }
 }
