@@ -16,7 +16,7 @@ pipeline {
 
     }
     post{
-     any {
+     always {
      step([$class: 'PublishTestNGResults', testngResults: '**/testng-results.xml'])
      }
     }
