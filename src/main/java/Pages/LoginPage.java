@@ -1,7 +1,7 @@
 package Pages;
 
+import lombok.Getter;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.DefaultElementLocatorFactory;
@@ -13,7 +13,7 @@ import BaseDriver.Spec.TestCollectionInput;
 import BaseDriver.Spec.TestInput;
 
 
-
+@Getter
 public class LoginPage {
     private WebDriver driver;
 
@@ -22,10 +22,6 @@ public class LoginPage {
 
     @FindBy(id = "password")
     private List<TestCollectionInput> password;
-
-    public TestInput getLoginInput(){
-        return loginInput;
-    }
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
