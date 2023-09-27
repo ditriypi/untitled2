@@ -18,6 +18,7 @@ pipeline {
     post{
      always {
      testNG(reportFilenamePattern: '**/testng-results.xml')
+      archiveArtifacts artifacts: '**/ScreenShoots/*.png', fingerprint: true, allowEmptyArchive: true
 
      }
     }
