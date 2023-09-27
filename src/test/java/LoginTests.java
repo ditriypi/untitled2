@@ -55,7 +55,7 @@ public class LoginTests {
         Set<String> set2 = new HashSet<>(Arrays.asList("apple", "banana", "cherry", "date"));
 
         WebDriverWait wait = new WebDriverWait(driver, 3);
-        driver.quit();
+
 
     }
 
@@ -68,7 +68,9 @@ public class LoginTests {
 
     @AfterClass
     private void tearDown(){
-        driver.quit();
+        if( driver != null){
+            driver.quit();
+        }
     }
 
     @AfterMethod
