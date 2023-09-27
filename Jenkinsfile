@@ -18,7 +18,7 @@ pipeline {
     post{
      always {
      testNG(reportFilenamePattern: '**/testng-results.xml')
-     testNG(reportFilenamePattern: '**/ScreenShoots/*.png')
+
      }
     }
 }
