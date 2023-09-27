@@ -1,7 +1,14 @@
+import Utils.ScreenShoot;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -25,17 +32,21 @@ import Pages.LoginPage;
 import Utils.ResourceReader;
 
 public class LoginTests {
+    private WebDriver driver;
+    @BeforeClass
+    public  void  setUp(){
+        driver = new BaseDriver().getChromeDriver();
+    }
     @Test
     public void loginTest() throws IOException {
-         var driver = new BaseDriver().getChromeDriver();
         driver.get("https://www.saucedemo.com/");
         driver.manage()
-              .timeouts()
-              .implicitlyWait(3, TimeUnit.SECONDS);
+                .timeouts()
+                .implicitlyWait(3, TimeUnit.SECONDS);
         LoginPage loginPage = new LoginPage(driver);
 
 
-         loginPage.getLoginInput().click();
+        loginPage.getLoginInput().click();
         ResourceReader reader = new ResourceReader();
         var name = reader.getPropertyByName("LOGIN");
         System.out.println(name);
@@ -48,10 +59,25 @@ public class LoginTests {
 
     }
 
-   @Test
+    @Test
     public void test() throws Exception {
-        throw new Exception();
-   }
+        driver.get("https://www.saucedemo.com/");
+
+        driver.findElement(By.id("hhwef"));
+    }
+
+    @AfterClass
+    private void tearDown(){
+        driver.quit();
+    }
+
+    @AfterMethod
+    public void getScreenIfFail(ITestResult testResult) {
+        if (!testResult.isSuccess()) {
+            ScreenShoot.takeAScreen(driver, testResult.getName());
+        }
+
+    }
 }
 
 
