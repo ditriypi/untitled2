@@ -43,7 +43,7 @@ public class LoginTests {
         List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5);
         Set<String> set2 = new HashSet<>(Arrays.asList("apple", "banana", "cherry", "date"));
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(driver, 3);
         driver.quit();
 
     }
