@@ -11,9 +11,9 @@ import java.util.List;
 import BaseDriver.CustomFieldDecorator;
 import BaseDriver.Spec.TestCollectionInput;
 import BaseDriver.Spec.TestInput;
-import lombok.Getter;
 
-@Getter
+
+
 public class LoginPage {
     private WebDriver driver;
 
@@ -22,6 +22,10 @@ public class LoginPage {
 
     @FindBy(id = "password")
     private List<TestCollectionInput> password;
+
+    public TestInput getLoginInput(){
+        return loginInput;
+    }
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
